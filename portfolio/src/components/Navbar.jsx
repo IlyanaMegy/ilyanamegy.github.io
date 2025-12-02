@@ -5,7 +5,7 @@ import BurgerMenu from "./BurgerMenu";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[rgb(175_159_191_/_90%)] backdrop-blur-md z-50 p-2 pl-0 pr-2 md:pr-3 lg:pr-6 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full bg-[rgb(218_202_233_/_70%)] backdrop-blur-md z-50 p-2 pl-0 pr-2 md:pr-3 lg:pr-6 flex justify-between items-center">
         <img
           src={Me}
           alt="Illustration d'Ilyana"
@@ -13,15 +13,15 @@ const Navbar = () => {
         />
 
       <div className="hidden md:flex space-x-4 text-text">
-        {["accueil","à propos","Parcours","Skills","Projects","Contact"].map((section) => (
+        {["accueil","à propos","parcours","compétences","projets","contact"].map((section) => (
           <Link
             key={section}
             to={section}
             spy={true}
             smooth={true}
-            offset={-80}
+            offset={-260}
             duration={500}
-            className="cursor-pointer text-sm lg:text-lg font-nav text-[#2b1710a3] md:text-base hover:text-[#edcbbe9c] transition-colors tracking-[1.5px] uppercase"
+            className="cursor-pointer text-sm lg:text-lg font-nav text-[#2b1710c4] md:text-base hover:text-[#754b3dd6] transition-colors tracking-[1.5px] uppercase"
           >
             {section}
           </Link>
