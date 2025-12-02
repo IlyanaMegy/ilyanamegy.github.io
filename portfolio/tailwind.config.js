@@ -14,6 +14,9 @@ module.exports = {
         text: "#1F1D1E",
       },
     },
+    fontFamily: {
+      nav: ['"Nunito"', "serif"],
+    },
   },
   plugins: [],
 };
