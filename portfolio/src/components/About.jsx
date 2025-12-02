@@ -1,13 +1,29 @@
 import React from "react";
+import PatternAbout from "../assets/pattern_about.png";
 
 const About = () => {
   return (
-    <section id="à propos" className="py-24 px-4 md:px-16 max-w-5xl mx-auto">
-      <h2 className="text-4xl font-bold text-lavender mb-8 text-center">À propos de moi</h2>
-      <p className="text-text text-lg leading-relaxed text-center">
-        Je suis développeuse web et systèmes, passionnée par les interfaces minimalistes et les expériences utilisateur fluides.  
-        J’aime créer des projets simples mais esthétiques, avec une vibe chaleureuse et sincère.
+    <section 
+      id="à propos" 
+      className="py-24 px-4 md:px-18 max-w-5xl mt-[10%] pb-[7%] mb-[10%] mx-auto relative"
+      style={{
+        backgroundImage: `url(${PatternAbout})`,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        opacity: '80%'
+      }}
+    >
+      <div className="absolute inset-0 bg-[rgb(237_230_219_/_40%)] z-0"></div>
+      <div className="relative z-10">
+        <h2 className="text-4xl font-bold text-[rgb(168_157_179)] mb-[50px] text-center">À propos de moi</h2>
+        <p className="text-[rgb(83_49_25_/_88%)] text-[15px] leading-[2] text-center pb-0 font-nav uppercase font-bold">
+        Actuellement étudiante à 42 Paris, mon intérêt se porte tout particulièrement sur <br />la création d'interfaces web avec un focus sur l'expérience utilisateur et l'esthétique de la page<br />
+        mais aussi sur l'administration et la gestion de réseaux, ainsi que la création de logiciels automatisés.<br />
+        Chacun de ces domaines me permet d'explorer différentes facettes du développement informatique.
       </p>
+      </div>
     </section>
   );
 };
