@@ -14,14 +14,14 @@ const Hero = () => (
       className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
     />
     <div
-      className="relative mb-[10px] md:mb-[100px] p-[50px] md:p-[150px] pt-[40px] md:pt-[80px] pb-[40px] min-h-[700px] md:pb-[70px] z-10  md:w-full max-w-[2000px] bg-[rgb(113_88_107_/_40%)] mx-auto"
+      className="relative mb-[10px] md:mb-[150px] p-[50px] md:p-[150px] pt-[40px] md:pt-[80px] pb-[40px] min-h-[700px] md:pb-[70px] z-10  md:w-full max-w-[2000px] bg-[rgb(113_88_107_/_40%)] mx-auto"
     >
       <div className="w-full overflow-hidden">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold text-lavender mb-6 text-center md:text-center"
+          className="text-4xl md:text-6xl font-bold text-[rgb(205_191_219)] mb-6 text-center md:text-center"
         >
           Salut, je suis Ilyana !
         </motion.h1>

@@ -7,19 +7,17 @@ const BurgerMenu = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const sections = ["accueil", "à propos", "Parcours", "Skills", "Projects", "Contact"];
+  const sections = ["accueil","à propos","parcours","compétences","projets","contact"];
 
   return (
     <div className="relative">
-      {/* Bouton burger */}
       <button
         onClick={toggleMenu}
         className="p-2 rounded hover:bg-lavender/10 transition-colors"
       >
-        <img src={ArrowDown} alt="Menu" className="w-6 h-6" />
+        <img src={ArrowDown} alt="Menu" className="w-10 h-10" />
       </button>
 
-      {/* Menu déroulant */}
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-bg/95 backdrop-blur-md rounded-lg shadow-lg border border-lavender/20">
           {sections.map((section) => (
@@ -28,10 +26,10 @@ const BurgerMenu = () => {
               to={section}
               spy={true}
               smooth={true}
-              offset={-80}
-              duration={500}
+              offset={-100}
+              duration={1300}
               className="block px-4 py-2 text-sm font-nav text-[#2b1710a3] hover:text-[#edcbbe9c] hover:bg-lavender/10 transition-colors tracking-[1.5px] uppercase text-center"
-              onClick={() => setIsOpen(false)} // ferme le menu au clic
+              onClick={() => setIsOpen(false)}
             >
               {section}
             </Link>
