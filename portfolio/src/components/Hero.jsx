@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Me from "../assets/hero/me.svg";
 import BgDetails from "../assets/hero/details_bg.svg";

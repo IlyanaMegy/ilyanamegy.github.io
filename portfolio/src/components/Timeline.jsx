@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import WildText from "../assets/pattern_jobs.png";
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import HtmlIcon from "../assets/languages/html.svg";
@@ -68,7 +68,6 @@ const Skills = () => {
 
   useEffect(() => {
     if (!isAutoPlay || isHovered) return;
-    
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % hardSkills.length);
     }, 3000);
