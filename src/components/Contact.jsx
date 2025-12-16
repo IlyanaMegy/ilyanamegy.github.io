@@ -79,7 +79,7 @@ const Contact = () => {
           <div className="space-y-5 md:space-y-4 sm:space-y-4 xsm:space-y-3">
             <div className="flex items-center space-x-4">
               <img src={PhoneIcon} alt="Téléphone" className="w-7 h-7 md:w-8 md:h-8" />
-              <span className="text-[#d6cddf] text-[15px] md:text-[16px] lg:text-[16px] font-nav">06 XX XX XX XX</span>
+              <span className="text-[#d6cddf] text-[15px] md:text-[16px] lg:text-[16px] font-nav">06 85 10 97 38</span>
             </div>
             <div className="flex items-center space-x-4">
               <img src={EmailIcon} alt="Email" className="w-7 h-7 md:w-8 md:h-8" />
