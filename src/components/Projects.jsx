@@ -187,7 +187,6 @@ const Projects = () => {
           backgroundColor: 'rgba(231, 220, 202, 0.3)'
         }}
       ></div>
-      
       <div className="relative z-10">
         <h2 className="text-4xl font-bold text-[#857893e8] mb-[100px] text-center uppercase">Projets</h2>
         <div className={`flex justify-center items-center min-h-[400px] ${isDistributed ? 'hidden' : 'block'}`}>

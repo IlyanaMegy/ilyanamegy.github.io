@@ -1,4 +1,3 @@
-import React from "react";
 import PatternAbout from "../assets/pattern_about.png";
 
 const About = () => {

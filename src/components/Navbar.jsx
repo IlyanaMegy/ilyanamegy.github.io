@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-scroll";
 import Me from "../assets/navbar/cv_logo.png";
 import BurgerMenu from "./BurgerMenu";
