@@ -19,7 +19,7 @@ function App() {
         <Timeline />
         <Skills />
         <Projects />
-        <GithubStats />
+        {/* <GithubStats /> */}
         <Contact />
       </main>
       <Footer />

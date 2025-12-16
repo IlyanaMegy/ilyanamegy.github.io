@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
-import Me from "../assets/cv_logo.png";
+import Me from "../assets/navbar/cv_logo.png";
 import BurgerMenu from "./BurgerMenu";
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
             to={section}
             spy={true}
             smooth={true}
-            offset={-260}
+            offset={section === "parcours" ? -180 : section === "projets" ? -190 : section === "compétences" ? -190 : section === "contact" ? -200 : -260}
             duration={500}
             className="cursor-pointer text-sm lg:text-lg font-nav text-[#2b1710c4] md:text-base hover:text-[#754b3dd6] transition-colors tracking-[1.5px] uppercase"
           >

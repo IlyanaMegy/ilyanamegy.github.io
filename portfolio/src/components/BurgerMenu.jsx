@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
-import ArrowDown from "../assets/down_arrow.png";
+import ArrowDown from "../assets/navbar/down_arrow.png";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Me from "../assets/me.svg";
-import BgDetails from "../assets/bg_details.svg";
+import Me from "../assets/hero/me.svg";
+import BgDetails from "../assets/hero/details_bg.svg";
 
 const Hero = () => (
   <section
@@ -32,7 +32,7 @@ const Hero = () => (
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-beige text-lg md:text-xl block text-center md:text-center"
+          className="text-[#eddccb] text-lg md:text-xl block text-center md:text-center"
         >
           Etudiante Développeuse Web & Systèmes,<br />
           <span className="whitespace-nowrap">
