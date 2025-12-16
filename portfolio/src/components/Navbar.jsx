@@ -1,15 +1,24 @@
 import { Link } from "react-scroll";
 import Me from "../assets/navbar/cv_logo.png";
+import DownloadIcon from "../assets/navbar/download.png";
+import CvPdf from "../assets/MEGY_Ilyana_CV.pdf";
 import BurgerMenu from "./BurgerMenu";
 
 const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-[rgb(218_202_233_/_70%)] backdrop-blur-md z-50 p-2 pl-0 pr-2 md:pr-3 lg:pr-6 flex justify-between items-center">
-        <img
-          src={Me}
-          alt="Illustration d'Ilyana"
-          className="w-20 h-20 md:w-30 md:h-30"
-        />
+        <a href={CvPdf} download="MEGY_Ilyana_CV.pdf" className="relative group block">
+          <img
+            src={Me}
+            alt="Illustration d'Ilyana"
+            className="w-20 h-20 md:w-30 md:h-30 transition-opacity duration-200 ease-out group-hover:opacity-95"
+          />
+          <img
+            src={DownloadIcon}
+            alt="Télécharger CV"
+            className="absolute inset-x-0 top-6 w-16 h-16 md:w-16 md:h-16 mx-auto opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100 pointer-events-none"
+          />
+        </a>
 
       <div className="hidden md:flex space-x-4 text-text">
         {["accueil","à propos","parcours","compétences","projets","contact"].map((section) => (
