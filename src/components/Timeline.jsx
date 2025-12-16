@@ -6,28 +6,27 @@ const parcours = [
   { 
     year: "Mai 2023 - Aujourd'hui", 
     title: "42 Paris", 
-    description: "Formation intensive en programmation par projets. Acquisition de compétences solides en algorithmie, développement web et soft skills.",
+    description: <>Formation intensive en programmation par projets.<br />Acquisition de compétences avancées en algorithmie<br />et travail autonome.</>,
     type: "school"
   },
   { 
     year: "2019 - 2022", 
     title: "Ynov Bordeaux", 
-    description: "Découverte de l'informatique dans sa globalité : administration réseau, sécurité, programmation orientée objet, développement web, et systèmes embarqués.",
+    description: <>Découverte de l'informatique dans sa globalité : administration réseau, sécurité,<br />programmation orientée objet,<br />développement web, et systèmes embarqués.</>,
     type: "school"
   },
   { 
     year: "2019", 
     title: "Baccalauréat", 
-    description: <>Baccalauréat Scientifique avec spécialité <strong>ISN</strong>.(Informatique et Sciences du Numérique)<br />Découverte des bases de la programmation, algorithmique et architecture des ordinateurs.</>,
+    description: <>Baccalauréat Scientifique avec spécialité <strong>ISN</strong>.<br />(Informatique et Sciences du Numérique)<br />Découverte des bases de la programmation, algorithmique et architecture des ordinateurs.</>,
     type: "achievement"
   },
 ];
 
 const Timeline = () => {
   return (
-    <section id="parcours" className="py-24 px-10 bg-[rgb(227_208_179_/_16%)] md:px-18 max-w-5xl mt-[10%] pb-[5%] mb-[10%] mx-auto relative">
-      <h2 className="text-4xl font-bold text-[rgb(168_157_179)] mb-24 text-center">Parcours</h2>
-      
+    <section id="parcours" className="py-24 px-10 bg-[rgb(227_208_179_/_16%)] max-w-[75rem] md:px-18 max-w-5xl mt-[10%] pb-[5%] mb-[10%] mx-auto relative">
+      <h2 className="text-4xl font-bold text-[#857893e8] mb-24 text-center uppercase">Parcours</h2>
       <div 
         className="absolute top-100 -right-5 hidden lg:block"
         style={{
@@ -56,14 +55,14 @@ const Timeline = () => {
               className={`relative flex items-center ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
             >
               <div className={`w-5/12 ${i % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                <div className="bg-[rgb(237_230_219_/_80%)] p-6 rounded-lg shadow-lg border border-lavender/20">
-                  <span className="text-sm font-bold text-lavender uppercase tracking-wider">
+                <div className="bg-[#e1dcd2ad] p-6 rounded-md shadow-md">
+                  <span className="text-sm font-bold text-[#9d8caf] uppercase tracking-wider">
                     {item.year}
                   </span>
-                  <h3 className="text-xl font-bold text-text mt-2 mb-3">
+                  <h3 className="text-xl font-bold text-[#614a3f] mt-2 mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-muted text-sm leading-relaxed">
+                  <p className="text-[#858585] text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
