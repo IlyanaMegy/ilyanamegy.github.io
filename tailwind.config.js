@@ -15,17 +15,30 @@ module.exports = {
       },
     },
     screens: {
-      'xsm': '480px',
+      'titles_big': '1270px',
+
+      'noburger-menu': '865px',
+
+      'soft_skills_big': '1130px',
+      'soft_skills_md': '1024px',
+
+      'large-contact': '1300px',
+
+      'xxs': '200px',
+      'xs': '480px',
       'sm': '640px',
       'md': '768px',
-      'midlg': '900px',
+      'md2': '810px',
+      'mid3': '900px',
       'lg': '1024px',
       'midxl': '1100px',
-      'xl': '1280px',
+      'xl': '1280px',      
       'mid2xl': '1360px',
       '2xl': '1536px',
+      'mid3xl': '1600px',
       '3xl': '1700px',
       '4xl': '1900px',
+      '5xl': '2000px',
     },
     fontFamily: {
       nav: ['"Nunito"', "serif"],
