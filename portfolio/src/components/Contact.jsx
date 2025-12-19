@@ -5,8 +5,10 @@ import ContactPattern2 from "../assets/contact/contact_pattern_2.png";
 import GithubIcon from "../assets/contact/github.png";
 import PhoneIcon from "../assets/contact/phone.png";
 import EmailIcon from "../assets/contact/email.png";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [currentBg, setCurrentBg] = useState(0);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -58,36 +60,26 @@ const Contact = () => {
         />
       </div>
       
-      <div className="relative z-10 grid grid-cols-12 items-start h-full">
-        <div className="col-start-4 col-span-3">
-          <div className="mt-[100px] xsm:mt-[125px] sm:mt-[115px] md:mt-[115px] ml-[100px] xsm:ml-[-35px] sm:ml-[-20px] md:ml-[0px] midlg:ml-[15px] lg:ml-[45px] midxl:ml-[70px] xl:ml-[110px] mid2xl:ml-[140px] 2xl:ml-[180px] 3xl:ml-[225px] mb-12">
-            <h2 className="xsm:text-[25px] sm:text-[27px] text-3xl md:text-[29px] midlg:text-[35px] lg:text-[35px] xl:text-[35px] 2xl:text-[36px] 3xl:text-[36px] font-bold text-[#cf9974] uppercase font-nav tracking-wider relative">Contact</h2>
-            <div 
-              className="absolute"
-              style={{
-                content: '""',
-                display: 'block',
-                width: '40px',
-                paddingTop: '3px',
-                borderBottom: '3px solid rgb(227 153 104)',
-                marginTop: '8px'
-              }}
-            ></div>
-          </div>
-        </div>
-        <div className="col-start-4 col-span-5 xsm:ml-[35px] sm:ml-[55px] md:ml-[55px] lg:ml-[50px] xl:ml-[60px] 2xl:ml-[85px] flex items-center justify-center">
-          <div className="space-y-5 md:space-y-4 sm:space-y-4 xsm:space-y-3">
-            <div className="flex items-center space-x-4">
-              <img src={PhoneIcon} alt="Téléphone" className="w-7 h-7 md:w-8 md:h-8" />
-              <span className="text-[#d6cddf] text-[15px] md:text-[16px] lg:text-[16px] font-nav">06 85 10 97 38</span>
+      <div className="relative z-10 grid grid-cols-12 grid-rows-12 items-start h-full">
+        <div className="col-start-8 xxs:col-start-4 xs:col-start-4 sm:col-start-4 md:col-start-5 md2:col-start-5 md3:col-span-7 col-span-5 row-start-9 xs:mt-[-2%] sm:mt-[-10%] lg:row-start-9 xl:row-start-9 2xl:row-start-9 row-span-5 lg:mb-5 midxl:mb-7 xl:mb-8 mid2xl:ml-[10%] mid3xl:ml-[15%] 4xl:mb-[10%]">
+          <div className="xxs:space-y-5 xs:space-y-5 sm:space-y-8 md:space-y-7 space-y-8">
+            <div>
+              <h2 className="text-[23px] xxs:text-[24px] xs:text-[26px] sm:text-[28px] md:text-[30px] md2:text-[35px] mid3:text-[35px] lg:text-[35px] xl:text-[35px] 2xl:text-[36px] 3xl:text-[36px] font-bold text-[#cf9974] uppercase font-nav tracking-wider relative">{t('contact')}</h2>
             </div>
-            <div className="flex items-center space-x-4">
-              <img src={EmailIcon} alt="Email" className="w-7 h-7 md:w-8 md:h-8" />
-              <a href="mailto:ilyanamegy@gmail.com" className="text-[#d6cddf] text-[15px] md:text-[16px] lg:text-[16px] font-nav hover:text-[#cf9974] transition-colors">ilyanamegy@gmail.com</a>
-            </div>
-            <div className="flex items-center space-x-4">
-              <img src={GithubIcon} alt="GitHub" className="w-7 h-7 md:w-8 md:h-8" />
-              <a href="https://github.com/IlyanaMegy" target="_blank" rel="noopenernoreferrer" className="text-[#d6cddf] text-[15px] md:text-[16px] lg:text-[16px] font-nav hover:text-[#cf9974] transition-colors">@IlyanaMegy</a>
+            
+            <div className="space-y-8 xxs:space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6 md2:space-y-6 md3:space-y-7">
+              {/* <div className="flex items-center space-x-4">
+                <img src={PhoneIcon} alt="Téléphone" className="w-7 h-7 md:w-8 md:h-8" />
+                <span className="text-[#d6cddf] text-[15px] md:text-[17px] lg:text-[16px] font-nav">06 85 10 97 38</span>
+              </div> */}
+              <div className="flex items-center space-x-4">
+                <img src={EmailIcon} alt="Email" className="w-7 h-7 md:w-8 md:h-8" />
+                <a href="mailto:ilyanamegy@gmail.com" className="text-[#d6cddf] text-[15px] md:text-[18px] lg:text-[20px] font-nav hover:text-[#cf9974] transition-colors">ilyanamegy@gmail.com</a>
+              </div>
+              <div className="flex items-center space-x-4">
+                <img src={GithubIcon} alt="GitHub" className="w-7 h-7 md:w-8 md:h-8" />
+                <a href="https://github.com/IlyanaMegy" target="_blank" rel="noopenernoreferrer" className="text-[#d6cddf] text-[15px] md:text-[18px] lg:text-[20px] font-nav hover:text-[#cf9974] transition-colors">@IlyanaMegy</a>
+              </div>
             </div>
           </div>
         </div>
