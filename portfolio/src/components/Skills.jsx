@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 import HtmlIcon from "../assets/languages/html.svg";
 import CssIcon from "../assets/languages/css.svg";
@@ -26,6 +27,7 @@ import DebianIcon from "../assets/languages/debian.svg";
 import skillsBg from "../assets/skills_bg.png";
 
 const Skills = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
@@ -55,16 +57,7 @@ const Skills = () => {
     { name: "Debian", icon: DebianIcon, color: "text-red-600" },
   ];
 
-  const softSkills = [
-    "Autonomie",
-    "Curiosité", 
-    "Travail en équipe",
-    "Logique",
-    "Rigueur",
-    "Communication",
-    "Adaptabilité",
-    "Créativité"
-  ];
+  const softSkills = t('softSkills');
 
   useEffect(() => {
     if (!isAutoPlay || isHovered) return;
@@ -124,7 +117,7 @@ const Skills = () => {
 
   return (
     <section 
-      id="compétences" 
+      id="competences" 
       className="py-24 px-4 md:px-18 max-w-[75rem] mt-[10%] mb-[10%] mx-auto relative min-h-[65vh]"
       style={{
         backgroundImage: `url(${skillsBg})`,
@@ -140,96 +133,96 @@ const Skills = () => {
           backgroundColor: '#e7dcca4d'
         }}
       ></div>
-      <div className="relative z-10 px-64">
-        <h2 className="text-4xl font-bold text-[#857893e8] mb-[100px] text-center uppercase">Compétences</h2>
-        <div className="mb-16">
+      <div className="relative z-10">
+        <h2 className="text-3xl titles_big:text-4xl font-bold text-[#857893e8] mb-20 text-center uppercase">{t('skillsTitle')}</h2>
+        <div className="mb-16 px-[20%] soft_skills_md:px-[10%]">
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            className="grid grid-cols-2 soft_skills_md:grid-cols-2 soft_skills_big:grid-cols-4 gap-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-          {softSkills.map((skill, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-[#cbbfd987] p-4 shadow-sm text-center h-20 flex items-center justify-center"
-            >
-              <span className="text-sm font-nav uppercase tracking-wider text-[#574124] transition-all duration-300 hover:text-[#d77a00] hover:text-[15px]">{skill}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-      <div>
-        <div 
-          className="relative h-[210px] flex items-center justify-center mb-0 overflow-hidden pb-0"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 z-20 p-3 transition-colors"
-          >
-            <svg className="w-6 h-6 text-[#61421b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-0 z-20 p-3 transition-colors"
-          >
-            <svg className="w-6 h-6 text-[#61421b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          <div className="relative w-full h-full flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
-            {hardSkills.map((skill, index) => (
+            {softSkills.map((skill, i) => (
               <motion.div
-                key={index}
-                className={`absolute bg-[#cbbfd987] p-6 shadow-sm flex flex-col items-center justify-center transition-all duration-50 ${
-                  index === currentIndex ? 'hover:bg-[#e9def5ab] hover:scale-110 cursor-pointer group' : 'cursor-default'
-                }`}
-                style={getCarouselItemStyle(index)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: getCarouselItemStyle(index).opacity }}
-                transition={{ duration: 0.3 }}
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="bg-[#cbbfd987] hover:bg-[#d4c9e194] p-4 shadow-sm text-center h-20 flex items-center justify-center"
               >
-                <img 
-                  src={skill.icon} 
-                  alt={skill.name}
-                  className={`w-16 h-16 ${skill.color} transition-all duration-200 ${
-                    index === currentIndex ? 'group-hover:mb-2' : ''
-                  }`}
-                />
-                <span className={`text-sm font-nav uppercase tracking-wider text-[#331f0abd] transition-opacity duration-100 absolute bottom-2 text-center ${
-                  index === currentIndex ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'
-                }`}>
-                  {skill.name}
-                </span>
+                <span className="text-md font-nav uppercase tracking-wider text-[#574124] transition-all duration-150 hover:text-bold hover:text-[15px] cursor-pointer">{skill}</span>
               </motion.div>
+            ))}
+          </motion.div>
+        </div>
+        <div>
+          <div 
+            className="relative h-[210px] flex items-center justify-center mb-0 overflow-hidden pb-0"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 z-20 p-3 transition-colors"
+            >
+              <svg className="w-6 h-6 text-[#61421b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-0 z-20 p-3 transition-colors"
+            >
+              <svg className="w-6 h-6 text-[#61421b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            <div className="relative w-full h-full flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
+              {hardSkills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  className={`absolute bg-[#cbbfd987] p-6 shadow-sm flex flex-col items-center justify-center transition-all duration-50 ${
+                    index === currentIndex ? 'hover:bg-[#d4c9e194] hover:scale-110 cursor-pointer group' : 'cursor-default'
+                  }`}
+                  style={getCarouselItemStyle(index)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: getCarouselItemStyle(index).opacity }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img 
+                    src={skill.icon} 
+                    alt={skill.name}
+                    className={`w-16 h-16 ${skill.color} transition-all duration-200 ${
+                      index === currentIndex ? 'group-hover:mb-2' : ''
+                    }`}
+                  />
+                  <span className={`text-sm font-nav uppercase tracking-wider text-[#331f0abd] transition-opacity duration-100 absolute bottom-2 text-center ${
+                    index === currentIndex ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'
+                  }`}>
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center gap-2 mt-2">
+            {hardSkills.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-0.5 h-1.5 rounded-full transition-all ${
+                  index === currentIndex 
+                    ? 'bg-[#61421b] w-8' 
+                    : 'bg-[#61421b]/30'
+                }`}
+              />
             ))}
           </div>
         </div>
-        <div className="flex justify-center gap-2 mt-2">
-          {hardSkills.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-0.5 h-1.5 rounded-full transition-all ${
-                index === currentIndex 
-                  ? 'bg-[#61421b] w-8' 
-                  : 'bg-[#61421b]/30'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
       </div>
     </section>
   );

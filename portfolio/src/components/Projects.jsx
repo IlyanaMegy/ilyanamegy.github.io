@@ -1,57 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useInView } from "framer-motion";
 import MockItUpImg from "../assets/projects/MockItUp.png";
 import BookclubImg from "../assets/projects/bookclub.png";
 import GitserverImg from "../assets/projects/gitserver.jpg";
+import WebservImg from "../assets/projects/webserv.png";
 import SoLongImg from "../assets/projects/solong.png";
 import TankytanksImg from "../assets/projects/tankytanks.png";
-import WebservImg from "../assets/projects/webserv.png";
 import skillsBg from "../assets/skills_bg.png";
-
-const projects = [
-  {
-    name: "So_Long",
-    description: "Jeu 2D développé en C avec la librairie graphique minilibx.",
-    github: "https://github.com/IlyanaMegy/42/tree/main/F.so_long",
-    image: SoLongImg,
-    tags: ["C", "Parsing", "Lexer"]
-  },
-  {
-    name: "BookClub",
-    description: "Application de gestion de bibliothèque avec catalogue de livres, profils utilisateurs et suivi d'état de lecture personnel.",
-    github: "https://github.com/IlyanaMegy/BookClub",
-    image: BookclubImg,
-    tags: ["PHP", "CSS", "MySQL"]
-  },
-  {
-    name: "Webserv",
-    description: "Serveur HTTP personnalisé compatible avec les standards du web.",
-    github: "https://github.com/IlyanaMegy/Webserv",
-    image: WebservImg,
-    tags: ["C++", "HTTP", "Network"]
-  },
-  {
-    name: "Git Server",
-    description: "Guide d'installation complète d'un serveur Git sur Raspberry Pi avec tutoriel détaillé par étapes et configuration.",
-    github: "https://github.com/IlyanaMegy/Git_Server",
-    image: GitserverImg,
-    tags: ["Git", "C#", "Bash"]
-  },
-  {
-    name: "MockItUp",
-    description: "Plateforme sociale de création et partage de posts avec système de publication, interaction utilisateur et feed personnalisé.",
-    github: "https://github.com/IlyanaMegy/MockItUp",
-    image: MockItUpImg,
-    tags: ["Symfony", "PHP", "MySQL"]
-  },
-  {
-    name: "TankyTank",
-    description: "Jeu 2D développé en Python avec la librairie Pygame.",
-    github: "https://github.com/IlyanaMegy/TankyTank",
-    image: TankytanksImg,
-    tags: ["Python", "Pygame", "Game"]
-  }
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const ProjectCard = ({ project, index, isDistributed, delay }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -68,7 +24,7 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
         rotateY: 180,
         x: 0,
         y: 0,
-        zIndex: projects.length - index
+        zIndex: 6 - index
       }}
       animate={isDistributed ? {
         opacity: 1,
@@ -88,7 +44,7 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
         rotateY: isInView ? 0 : 180,
         x: 0,
         y: index * 2 - 6,
-        zIndex: projects.length - index,
+        zIndex: 6 - index,
         transition: {
           duration: 0.6
         }
@@ -145,7 +101,7 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
             rel="noopener noreferrer"
             className="bg-[#a67e90c7] text-white px-3 py-1.5 rounded-sm text-center hover:bg-[#b37f93e6] transition-colors font-nav uppercase tracking-wider text-xs"
           >
-            Voir sur GitHub
+            {project.viewGithub}
           </a>
         </div>
       </motion.div>
@@ -154,12 +110,64 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
 };
 
 const Projects = () => {
+  const { t } = useLanguage();
   const [isDistributed, setIsDistributed] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
+
+  const projects = [
+    {
+      name: t('soLongName'),
+      description: t('soLongDesc'),
+      github: "https://github.com/IlyanaMegy/42/tree/main/F.so_long",
+      image: SoLongImg,
+      tags: ["C", "Parsing", "Lexer"],
+      viewGithub: t('viewGithub')
+    },
+    {
+      name: t('bookclubName'),
+      description: t('bookclubDesc'),
+      github: "https://github.com/IlyanaMegy/BookClub",
+      image: BookclubImg,
+      tags: ["PHP", "CSS", "MySQL"],
+      viewGithub: t('viewGithub')
+    },
+    {
+      name: t('webservName'),
+      description: t('webservDesc'),
+      github: "https://github.com/IlyanaMegy/Webserv",
+      image: WebservImg,
+      tags: ["C++", "HTTP", "Network"],
+      viewGithub: t('viewGithub')
+    },
+    {
+      name: t('gitserverName'),
+      description: t('gitserverDesc'),
+      github: "https://github.com/IlyanaMegy/Git_Server",
+      image: GitserverImg,
+      tags: ["Git", "C#", "Bash"],
+      viewGithub: t('viewGithub')
+    },
+    {
+      name: t('mockitupName'),
+      description: t('mockitupDesc'),
+      github: "https://github.com/IlyanaMegy/MockItUp",
+      image: MockItUpImg,
+      tags: ["Symfony", "PHP", "MySQL"],
+      viewGithub: t('viewGithub')
+    },
+    {
+      name: t('tankytankName'),
+      description: t('tankytankDesc'),
+      github: "https://github.com/IlyanaMegy/TankyTank",
+      image: TankytanksImg,
+      tags: ["Python", "Pygame", "Game"],
+      viewGithub: t('viewGithub')
+    }
+  ];
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
@@ -188,7 +196,7 @@ const Projects = () => {
         }}
       ></div>
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold text-[#857893e8] mb-[100px] text-center uppercase">Projets</h2>
+        <h2 className="text-4xl font-bold text-[#857893e8] mb-[100px] text-center uppercase">{t('projectsTitle')}</h2>
         <div className={`flex justify-center items-center min-h-[400px] ${isDistributed ? 'hidden' : 'block'}`}>
           <div className="relative">
             {projects.map((project, index) => (

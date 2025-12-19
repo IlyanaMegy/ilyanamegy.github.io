@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
 import Me from "../assets/hero/me.svg";
 import BgDetails from "../assets/hero/details_bg.svg";
+import { useLanguage } from "../contexts/LanguageContext";
 
-const Hero = () => (
+const Hero = () => {
+  const { t } = useLanguage();
+
+  return (
   <section
     id="accueil"
     className="h-screen w-full flex flex-col justify-center items-center text-center px-4 pt-30 md:pt-64 gap-6 hero-bg"
   >
     <img
       src={BgDetails}
-      alt="Décoration"
+      alt={t('decorationAlt')}
       className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
     />
     <div
@@ -22,7 +26,7 @@ const Hero = () => (
           transition={{ duration: 1 }}
           className="text-4xl md:text-6xl font-bold text-[rgb(205_191_219)] mb-6 text-center md:text-center"
         >
-          Salut, je suis Ilyana !
+          {t('heroTitle')}
         </motion.h1>
       </div>
       
@@ -33,9 +37,9 @@ const Hero = () => (
           transition={{ duration: 1, delay: 0.5 }}
           className="text-[#eddccb] text-lg md:text-xl block text-center md:text-center"
         >
-          Etudiante Développeuse Web & Systèmes,<br />
+          {t('heroSubtitle')}<br />
           <span className="whitespace-nowrap">
-            passionnée de webdesign et de solutions logicielles automatisées.
+            {t('heroDescription')}
           </span>
         </motion.p>
       </div>
@@ -43,12 +47,13 @@ const Hero = () => (
       <div className="w-full overflow-hidden">
         <img
           src={Me}
-          alt="Illustration d'Ilyana"
+          alt={t('heroAlt')}
           className="w-60 h-60 md:w-80 md:h-80 mt-12 mx-auto"
         />
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Hero;

@@ -1,31 +1,37 @@
 import { motion } from "framer-motion";
 import WildText from "../assets/pattern_jobs.png";
-
-const parcours = [
-  { 
-    year: "Mai 2023 - Aujourd'hui", 
-    title: "42 Paris", 
-    description: <>Formation intensive en programmation par projets.<br />Acquisition de compétences avancées en algorithmie<br />et travail autonome.</>,
-    type: "school"
-  },
-  { 
-    year: "2019 - 2022", 
-    title: "Ynov Bordeaux", 
-    description: <>Découverte de l'informatique dans sa globalité : administration réseau, sécurité,<br />programmation orientée objet,<br />développement web, et systèmes embarqués.</>,
-    type: "school"
-  },
-  { 
-    year: "2019", 
-    title: "Baccalauréat", 
-    description: <>Baccalauréat Scientifique avec spécialité <strong>ISN</strong>.<br />(Informatique et Sciences du Numérique)<br />Découverte des bases de la programmation, algorithmique et architecture des ordinateurs.</>,
-    type: "achievement"
-  },
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Timeline = () => {
+  const { t } = useLanguage();
+
+  const parcours = [
+    { 
+      year: t('timeline2023'), 
+      title: t('timeline42'), 
+      subtitle: t('timeline42Subtitle'),
+      description: <>{t('timeline42Desc')}</>,
+      type: "school"
+    },
+    { 
+      year: t('timeline2022'), 
+      title: t('timelineYnov'), 
+      subtitle: t('timelineYnovSubtitle'),
+      description: <>{t('timelineYnovDesc')}</>,
+      type: "school"
+    },
+    { 
+      year: t('timeline2019'), 
+      title: t('timelineBac'), 
+      subtitle: t('timelineBacSubtitle'),
+      description: <>{t('timelineBacDesc')}</>,
+      type: "achievement"
+    },
+  ];
+
   return (
     <section id="parcours" className="py-24 px-10 bg-[rgb(227_208_179_/_16%)] max-w-[75rem] md:px-18 max-w-5xl mt-[10%] pb-[5%] mb-[10%] mx-auto relative">
-      <h2 className="text-4xl font-bold text-[#857893e8] mb-24 text-center uppercase">Parcours</h2>
+      <h2 className="text-3xl titles_big:text-4xl font-bold text-[#857893e8] mb-20 text-center uppercase">{t('timelineTitle')}</h2>
       <div 
         className="absolute top-100 -right-5 hidden lg:block"
         style={{
@@ -58,9 +64,14 @@ const Timeline = () => {
                   <span className="text-sm font-bold text-[#9d8caf] uppercase tracking-wider">
                     {item.year}
                   </span>
-                  <h3 className="text-xl font-bold text-[#614a3f] mt-2 mb-3">
+                  <h3 className="text-xl font-bold text-[#614a3f] mt-2 mb-1">
                     {item.title}
                   </h3>
+                  {item.subtitle && (
+                    <p className="text-sm text-[#9d8caf] font-medium mb-4">
+                      {item.subtitle}
+                    </p>
+                  )}
                   <p className="text-[#858585] text-sm leading-relaxed">
                     {item.description}
                   </p>
