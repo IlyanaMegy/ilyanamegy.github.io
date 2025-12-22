@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import Me from "../assets/hero/me.svg";
 import BgDetails from "../assets/hero/details_bg.svg";
+import GithubIcon from "../assets/hero/github.png";
+import LinkedInIcon from "../assets/hero/linkedin.png";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const Hero = () => {
@@ -50,6 +52,34 @@ const Hero = () => {
           alt={t('heroAlt')}
           className="w-60 h-60 md:w-80 md:h-80 mt-12 mx-auto"
         />
+      </div>
+      
+      <div className="absolute bottom-4 right-4 flex items-center gap-4 z-20">
+        <a 
+          href="https://github.com/ilyanamegy" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:opacity-80 transition-opacity"
+        >
+          <img 
+            src={GithubIcon} 
+            alt="GitHub" 
+            className="w-10 h-10"
+          />
+        </a>
+        <div className="w-px h-6 bg-[#EDDCCB] opacity-80"></div>
+        <a 
+          href="https://www.linkedin.com/in/ilyana-megy/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:opacity-80 transition-opacity"
+        >
+          <img 
+            src={LinkedInIcon} 
+            alt="LinkedIn" 
+            className="w-10 h-10"
+          />
+        </a>
       </div>
     </div>
   </section>
