@@ -1,8 +1,8 @@
 import { Link } from "react-scroll";
 import Me from "../assets/navbar/cv_logo.png";
 import DownloadIcon from "../assets/navbar/download.png";
-import CvFr from "../assets/Ilyana_Megy_CV_fr.pdf";
-import CvEn from "../assets/Ilyana_Megy_CV_en.pdf";
+import CvFr from "../../public/Megy_Ilyana_Resume.pdf";
+import CvEn from "../../public/Megy_Ilyana_Resume.pdf";
 import FrenchFlag from "../assets/navbar/french-lang.png";
 import EnglishFlag from "../assets/navbar/english-lang.png";
 import BurgerMenu from "./BurgerMenu";
@@ -12,7 +12,7 @@ const Navbar = () => {
   const { language, toggleLanguage, t } = useLanguage();
   
   const currentCv = language === 'fr' ? CvFr : CvEn;
-  const cvFileName = t('cvFileName');
+  const cvFileName = "Megy_Ilyana_Resume.pdf";
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-[rgb(218_202_233_/_70%)] backdrop-blur-md z-50 p-2 pl-0 pr-2 md:pr-3 lg:pr-6 flex justify-between items-center">
