@@ -3,7 +3,6 @@ import { useScroll } from "framer-motion";
 import ContactPattern1 from "../assets/contact/contact_pattern_1.png";
 import ContactPattern2 from "../assets/contact/contact_pattern_2.png";
 import GithubIcon from "../assets/contact/github.png";
-import PhoneIcon from "../assets/contact/phone.png";
 import EmailIcon from "../assets/contact/email.png";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -26,8 +25,6 @@ const Contact = () => {
     
     return unsubscribe;
   }, [scrollYProgress]);
-
-  const backgrounds = [ContactPattern1, ContactPattern2, ContactPattern1];
 
   return (
     <section 

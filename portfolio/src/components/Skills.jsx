@@ -29,7 +29,7 @@ import skillsBg from "../assets/skills_bg.png";
 const Skills = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const isAutoPlay = true;
   const [isHovered, setIsHovered] = useState(false);
 
   const hardSkills = [
