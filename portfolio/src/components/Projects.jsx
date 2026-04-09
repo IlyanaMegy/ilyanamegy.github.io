@@ -7,6 +7,7 @@ import WebservImg from "../assets/projects/webserv.png";
 import SoLongImg from "../assets/projects/solong.png";
 import TankytanksImg from "../assets/projects/tankytanks.png";
 import skillsBg from "../assets/skills_bg.png";
+import { useDevice } from "../contexts/DeviceContext";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const ProjectCard = ({ project, index, isDistributed, delay }) => {
@@ -17,7 +18,7 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-80 h-56 cursor-pointer"
+      className="relative w-full max-w-[20rem] h-56 cursor-pointer"
       initial={{ 
         opacity: 0,
         scale: 0.8,
@@ -110,6 +111,7 @@ const ProjectCard = ({ project, index, isDistributed, delay }) => {
 };
 
 const Projects = () => {
+  const isMobile = useDevice();
   const { t } = useLanguage();
   const [isDistributed, setIsDistributed] = useState(false);
   const containerRef = useRef(null);
@@ -170,17 +172,22 @@ const Projects = () => {
   ];
 
   useEffect(() => {
+    if (isMobile) {
+      setIsDistributed(true);
+      return;
+    }
+
     const unsubscribe = scrollYProgress.on("change", (latest) => {
       setIsDistributed(latest > 0.1);
     });
     return unsubscribe;
-  }, [scrollYProgress]);
+  }, [isMobile, scrollYProgress]);
 
   return (
     <section 
       id="projets" 
       ref={containerRef}
-      className="py-24 px-4 md:px-18 max-w-[75rem] mt-[10%] mb-[10%] mx-auto relative min-h-[65vh]"
+      className="py-16 sm:py-24 px-4 md:px-18 max-w-[75rem] mt-12 md:mt-[10%] mb-12 md:mb-[10%] mx-auto relative min-h-[65vh]"
       style={{
         backgroundImage: `url(${skillsBg})`,
         backgroundAttachment: 'fixed',
@@ -196,8 +203,8 @@ const Projects = () => {
         }}
       ></div>
       <div className="relative z-10">
-        <h2 className="text-4xl font-bold text-[#857893e8] mb-[100px] text-center uppercase">{t('projectsTitle')}</h2>
-        <div className={`flex justify-center items-center min-h-[400px] ${isDistributed ? 'hidden' : 'block'}`}>
+        <h2 className="text-2xl sm:text-4xl font-bold text-[#857893e8] mb-10 sm:mb-[100px] text-center uppercase">{t('projectsTitle')}</h2>
+        <div className={`${isDistributed ? 'hidden' : 'block'} ${isMobile ? 'hidden' : 'flex'} justify-center items-center min-h-[400px]`}>
           <div className="relative">
             {projects.map((project, index) => (
               <ProjectCard
@@ -210,7 +217,7 @@ const Projects = () => {
             ))}
           </div>
         </div>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 justify-items-center ${isDistributed ? 'block' : 'hidden'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 justify-items-center ${isDistributed ? 'grid' : 'hidden'} ${isMobile ? 'grid' : ''}`}>
           {projects.map((project, index) => (
             <ProjectCard
               key={project.name}

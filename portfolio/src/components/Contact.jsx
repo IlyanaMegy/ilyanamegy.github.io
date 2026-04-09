@@ -58,7 +58,7 @@ const Contact = () => {
       </div>
       
       <div className="relative z-10 grid grid-cols-12 grid-rows-12 items-start h-full">
-        <div className="col-start-8 xxs:col-start-4 xs:col-start-4 sm:col-start-4 md:col-start-5 md2:col-start-5 md3:col-span-7 col-span-5 row-start-9 xs:mt-[-2%] sm:mt-[-10%] lg:row-start-9 xl:row-start-9 2xl:row-start-9 row-span-5 lg:mb-5 midxl:mb-7 xl:mb-8 mid2xl:ml-[10%] mid3xl:ml-[15%] 4xl:mb-[10%]">
+        <div className="col-start-8 xxs:col-start-4 xs:col-start-4 sm:col-start-4 md:col-start-5 md2:col-start-5 md3:col-span-7 col-span-5 row-start-7 xs:mt-[-2%] sm:mt-[-10%] lg:row-start-9 xl:row-start-9 2xl:row-start-9 row-span-5 lg:mb-5 midxl:mb-7 xl:mb-8 mid2xl:ml-[10%] mid3xl:ml-[15%] 4xl:mb-[10%]">
           <div className="xxs:space-y-5 xs:space-y-5 sm:space-y-8 md:space-y-7 space-y-8">
             <div>
               <h2 className="text-[23px] xxs:text-[24px] xs:text-[26px] sm:text-[28px] md:text-[30px] md2:text-[35px] mid3:text-[35px] lg:text-[35px] xl:text-[35px] 2xl:text-[36px] 3xl:text-[36px] font-bold text-[#cf9974] uppercase font-nav tracking-wider relative">{t('contact')}</h2>
